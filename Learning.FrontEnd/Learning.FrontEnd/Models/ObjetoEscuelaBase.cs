@@ -4,6 +4,7 @@ namespace Learning.FrontEnd.Models
 {
     public abstract class ObjetoEscuelaBase
     {
+        public string Id { get; set; }
         public string UniqueId { get; set; }
         public string Nombre { get; set; }
 
@@ -14,7 +15,7 @@ namespace Learning.FrontEnd.Models
 
         public override string ToString()
         {
-            return $"{Nombre},{UniqueId}";
+            return $"{Nombre},{Id}";
         }
     }
 }
