@@ -13,7 +13,7 @@ namespace Learning.FrontEnd.Controllers
             return View(new Alumno
             {
                 Nombre = "Juan Carlos Santamaria",
-                UniqueId = Guid.NewGuid().ToString()
+                Id = Guid.NewGuid().ToString()
             });
         }
 
@@ -39,10 +39,10 @@ namespace Learning.FrontEnd.Controllers
                                select new Alumno
                                {
                                    Nombre = $"{n1} {n2} {a1}",
-                                   UniqueId = Guid.NewGuid().ToString()
+                                   Id = Guid.NewGuid().ToString()
                                };
 
-            return listaAlumnos.OrderBy((al) => al.UniqueId).ToList();
+            return listaAlumnos.OrderBy((al) => al.Id).ToList();
         }
     }
 }
