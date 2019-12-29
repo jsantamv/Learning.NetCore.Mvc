@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Learning.FrontEnd.Models
 {
-    public class Curso:ObjetoEscuelaBase
+    public class Curso : ObjetoEscuelaBase
     {
         /* Referencia hacia su padre */
         public Escuela Escuela { get; set; }
@@ -17,7 +17,7 @@ namespace Learning.FrontEnd.Models
         public TiposJornada Jornada { get; set; }
         public string Dirección { get; set; }
 
-        
-        
+
+
     }
 }
