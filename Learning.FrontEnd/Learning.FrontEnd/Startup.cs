@@ -29,6 +29,7 @@ namespace Learning.FrontEnd
 
             //agregamos un servicio para manejar en memoria una base de datos. 
             services.AddDbContext<EscuelaContext>(
+                //aca estamos especificando una base de datos en memoria
                 options => options.UseInMemoryDatabase(databaseName: "pruebaDb")
             );
         }

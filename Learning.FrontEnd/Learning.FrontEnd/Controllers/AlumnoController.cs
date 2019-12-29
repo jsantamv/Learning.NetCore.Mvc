@@ -8,23 +8,33 @@ namespace Learning.FrontEnd.Controllers
 {
     public class AlumnoController : Controller
     {
+
+
+        //Craecion del Contexto de escuela
+        private EscuelaContext _context;
+        /// <summary>
+        /// Constructor dinamico por contexto.
+        /// </summary>
+        /// <param name="context"></param>
+        public AlumnoController(EscuelaContext context)
+        {
+            _context = context;
+        }
+
+
         public IActionResult Index()
         {
-            return View(new Alumno
-            {
-                Nombre = "Juan Carlos Santamaria",
-                Id = Guid.NewGuid().ToString()
-            });
+            return View(_context.Alumnos.FirstOrDefault());
         }
 
         public IActionResult MultiAlumno()
         {
-            var listaAlumnos = GenerarAlumnosAlAzar();
+            //var listaAlumnos = GenerarAlumnosAlAzar();
 
             ViewBag.CosaDinamica = "La Monja";
             ViewBag.Fecha = DateTime.Now;
 
-            return View("MultiAlumno", listaAlumnos);
+            return View("MultiAlumno", _context.Alumnos);
         }
 
         private List<Alumno> GenerarAlumnosAlAzar()

@@ -14,6 +14,11 @@ namespace Learning.FrontEnd
 {
     public class Program
     {
+        /// <summary>
+        /// antes de que se crea la aplicacion garantizamos que
+        /// los datos ya han sido creados. 
+        /// </summary>
+        /// <param name="args"></param>
         public static void Main(string[] args)
         {
             //CreateWebHostBuilder(args).Build().Run();
@@ -21,10 +26,13 @@ namespace Learning.FrontEnd
 
             using (var scope = host.Services.CreateScope())
             {
+                //utilizamos el patron de diseno DI (Dependecy Injection)
                 var services = scope.ServiceProvider;
                 try
                 {
                     var context = services.GetRequiredService<EscuelaContext>();
+                    //garantia de creacion de datos. 
+                    //validacion previa antes de iniciarlizar el programa.
                     context.Database.EnsureCreated();
                 }
                 catch (Exception ex)

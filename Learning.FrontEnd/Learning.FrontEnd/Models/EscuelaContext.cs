@@ -31,6 +31,8 @@ namespace Learning.FrontEnd.Models
             escuela.Dirección = "Avd Siempre viva";
             escuela.TipoEscuela = TiposEscuela.Secundaria;
 
+            //Siemnbra de datos solo la primera ves si no existen
+            //esto es agnostico a la base de datos. Indeferentemente la base de datos
             modelBuilder.Entity<Escuela>().HasData(escuela);
 
             modelBuilder.Entity<Asignatura>().HasData(
