@@ -29,7 +29,7 @@ namespace Learning.FrontEnd.Models
                 Nombre = "Platzi School",
                 Ciudad = "Bogota",
                 Pais = "Colombia",
-                Dirección = "Avd Siempre viva",
+                Direccion = "Avd Siempre viva",
                 TipoEscuela = TiposEscuela.Secundaria
             };
 
