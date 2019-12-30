@@ -22,14 +22,16 @@ namespace Learning.FrontEnd.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            var escuela = new Escuela();
-            escuela.AñoDeCreación = 2005;
-            escuela.Id = Guid.NewGuid().ToString();
-            escuela.Nombre = "Platzi School";
-            escuela.Ciudad = "Bogota";
-            escuela.Pais = "Colombia";
-            escuela.Dirección = "Avd Siempre viva";
-            escuela.TipoEscuela = TiposEscuela.Secundaria;
+            var escuela = new Escuela
+            {
+                AñoDeCreación = 2005,
+                Id = Guid.NewGuid().ToString(),
+                Nombre = "Platzi School",
+                Ciudad = "Bogota",
+                Pais = "Colombia",
+                Dirección = "Avd Siempre viva",
+                TipoEscuela = TiposEscuela.Secundaria
+            };
 
             //Cargar Cursos de la escuela
             var cursos = CargarCursos(escuela);
