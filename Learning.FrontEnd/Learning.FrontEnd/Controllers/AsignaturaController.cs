@@ -37,11 +37,19 @@ namespace Learning.FrontEnd.Controllers
         [Route("Asignatura/Index/{asignaturaId?}")]
         public IActionResult Index(string asignaturaId)
         {
-            var asignatura = from asig in _context.Asignaturas
-                             where asig.Id == asignaturaId
-                             select asig;
+            if (!string.IsNullOrWhiteSpace(asignaturaId))
+            {
+                var asignatura = from asig in _context.Asignaturas
+                                 where asig.Id == asignaturaId
+                                 select asig;
 
-            return View(asignatura.SingleOrDefault());
+                return View(asignatura.SingleOrDefault());
+            }
+            else
+            {
+                //ya esto se resuelve en el primer index, esto es meramente como aprendizaje
+                return View("MultiAsignatura", _context.Asignaturas);
+            }
         }
 
         public IActionResult MultiAsignatura()

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Learning.FrontEnd.Controllers
 {
-    public class AlumnoController : Controller
+    public class CursoController : Controller
     {
 
 
@@ -17,19 +17,20 @@ namespace Learning.FrontEnd.Controllers
         /// Constructor dinamico por contexto.
         /// </summary>
         /// <param name="context"></param>
-        public AlumnoController(EscuelaContext context)
+        public CursoController(EscuelaContext context)
         {
             _context = context;
         }
 
 
-        [Route("Alumno/Index")]
-        [Route("Alumno/Index/{Id?}")]
+        [Route("Curso/Index")]
+        [Route("Curso")]
+        [Route("Curso/Index/{Id?}")]
         public IActionResult Index(string id)
         {
             if (!string.IsNullOrWhiteSpace(id))
             {
-                var lista = from obj in _context.Alumnos
+                var lista = from obj in _context.Cursos
                             where obj.Id == id
                             select obj;
 
@@ -38,18 +39,18 @@ namespace Learning.FrontEnd.Controllers
             else
             {
                 //ya esto se resuelve en el primer index, esto es meramente como aprendizaje
-                return View("MultiAlumno", _context.Alumnos);
+                return View("MultiCurso", _context.Cursos);
             }
         }
 
-        public IActionResult MultiAlumno()
+        public IActionResult MultiCurso()
         {
-            //var listaAlumnos = GenerarAlumnosAlAzar();
+            //var listaCursos = GenerarCursosAlAzar();
 
-            ViewBag.CosaDinamica = "La Monja";
+            ViewBag.CosaDinamica = "Listado de Cursos";
             ViewBag.Fecha = DateTime.Now;
 
-            return View("MultiAlumno", _context.Alumnos);
+            return View("MultiCurso", _context.Cursos);
         }
       
     }
