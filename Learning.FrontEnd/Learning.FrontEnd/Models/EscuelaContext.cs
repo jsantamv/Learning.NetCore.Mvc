@@ -92,11 +92,12 @@ namespace Learning.FrontEnd.Models
                             Id = Guid.NewGuid().ToString(),
                             EscuelaId = escuela.Id,
                             Nombre = "101",
+                            Direccion = "Avenida Segunda",
                             Jornada = TiposJornada.Manana },
-                        new Curso() {Id = Guid.NewGuid().ToString(), EscuelaId = escuela.Id, Nombre = "201", Jornada = TiposJornada.Manana},
-                        new Curso   {Id = Guid.NewGuid().ToString(), EscuelaId = escuela.Id, Nombre = "301", Jornada = TiposJornada.Manana},
-                        new Curso() {Id = Guid.NewGuid().ToString(), EscuelaId = escuela.Id, Nombre = "401", Jornada = TiposJornada.Tarde },
-                        new Curso() {Id = Guid.NewGuid().ToString(), EscuelaId = escuela.Id, Nombre = "501", Jornada = TiposJornada.Tarde},
+                        new Curso() {Id = Guid.NewGuid().ToString(), EscuelaId = escuela.Id, Nombre = "201", Direccion = "Avenida Tercera", Jornada = TiposJornada.Manana},
+                        new Curso   {Id = Guid.NewGuid().ToString(), EscuelaId = escuela.Id, Nombre = "301", Direccion = "Avenida Cuarta", Jornada = TiposJornada.Manana},
+                        new Curso() {Id = Guid.NewGuid().ToString(), EscuelaId = escuela.Id, Nombre = "401", Direccion = "Avenida Quinta", Jornada = TiposJornada.Tarde },
+                        new Curso() {Id = Guid.NewGuid().ToString(), EscuelaId = escuela.Id, Nombre = "501", Direccion = "Avenida Sexta", Jornada = TiposJornada.Tarde},
             };
         }
 
