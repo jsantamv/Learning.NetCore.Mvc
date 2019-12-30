@@ -64,14 +64,21 @@ namespace Learning.FrontEnd.Controllers
         public IActionResult Create(Curso curso)
         {
             ViewBag.Fecha = DateTime.Now;
-            var escuela = _context.Escuelas.FirstOrDefault();
-            
-            curso.EscuelaId = escuela.Id;
-            curso.Id = Guid.NewGuid().ToString();
-            _context.Cursos.Add(curso);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                var escuela = _context.Escuelas.FirstOrDefault();
 
-            return View();
+                curso.EscuelaId = escuela.Id;
+                curso.Id = Guid.NewGuid().ToString();
+                _context.Cursos.Add(curso);
+                _context.SaveChanges();
+
+                return View("Index", curso);
+            }
+            else
+            {
+                return View(curso);
+            }
         }
     }
 }

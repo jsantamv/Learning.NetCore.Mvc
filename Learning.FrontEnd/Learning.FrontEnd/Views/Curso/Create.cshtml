@@ -8,24 +8,31 @@
 <h1>@ViewData["Title"]</h1>
 
 <form method="post">
-    
+
+
+    @*Esto es para que me muestre todas las validaciones *@
+    <div asp-validation-summary="All"></div>
+
     <div>
         <label asp-for="Nombre"></label>
-        <input asp-for="Nombre"/>
+        <input asp-for="Nombre" />
     </div>
 
     <div>
         <label asp-for="Direccion"></label>
-        <input asp-for="Direccion"/>
+        <input asp-for="Direccion" />
     </div>
 
     <div>
         <label asp-for="Jornada"></label>
-        <input asp-for="Jornada"/>
+
+        @*Esto es un Html Heleper para utilizar y llenar un select con un Enumerable*@
+        @Html.DropDownList("Jornada", Html.GetEnumSelectList<TiposJornada>(), "Selecione Jornada", new { @class = "form-control" })
+
     </div>
-    
-    
-    <input type="submit"/>
+
+
+    <input type="submit" />
 </form>
 
 <p><i>@ViewBag.Fecha</i></p>
