@@ -28,10 +28,15 @@ namespace Learning.FrontEnd
             services.AddControllersWithViews();
 
             //agregamos un servicio para manejar en memoria una base de datos. 
-            services.AddDbContext<EscuelaContext>(
-                //aca estamos especificando una base de datos en memoria
-                options => options.UseInMemoryDatabase(databaseName: "pruebaDb")
-            );
+            //services.AddDbContext<EscuelaContext>(
+            //    //aca estamos especificando una base de datos en memoria
+            //    options => options.UseInMemoryDatabase(databaseName: "pruebaDb")
+            //);
+
+            string connString = ConfigurationExtensions.GetConnectionString(this.Configuration, "ConnStringDefault");
+            //aca estamos especificando una base de datos en memoria
+            services.AddDbContext<EscuelaContext>(options => options.UseSqlServer(connString));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
